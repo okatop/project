@@ -3,11 +3,10 @@
 
 
 
-<main class="hoc container clear"> <!-- main body --> <!-- ################################################################################################ -->
+<main class="hoc container clear"> <!-- main body -->
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4">
-			<!-- ################################################################################################ -->
 			<nav class="sdb_holder">
 				<ul>
 					<div class="wrapper row1">

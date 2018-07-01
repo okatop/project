@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/frame/mpheader.jsp"%>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<head>
+	<title>INDIYA</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<style type="text/css">
 			.carousel{
 			background: #2f4357;
@@ -26,37 +32,75 @@
 			#modal{display:none;background-color:#FFFFFF;position:absolute;top:300px;left:200px;padding:10px;border:2px solid #E2E2E2;z-Index:9999}
 		</style>		
 	</head>
-
+<%@include file="/frame/mpheader.jsp"%>
 
 <!------------------------------------------- footer------------------------------------- -->
 
 <body>
 
 <div class="wrapper row3">
-  <div class="hoc container clear" >
+  <div class="hoc container clear" style="padding-top:50px" >
   
-  	<div id="bandtitle" style="width:100%;">
-    <h1>BANDNAME</h1>           
-          <a class="faicon-facebook" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-          <a class="faicon-twitter" href="https://twitter.com/?lang=ko"><i class="fa fa-twitter"></i></a>
-          <a class="faicon-instagram" href="https://www.instagram.com/?hl=ko"><i class="fa fa-instagram"></i></a>
-          <a class="faicon-youtube" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
-    </div>             	
+		<div class="one_quarter first">
+				<nav class="sdb_holder">
+					<div class="wrapper row1">
+				<ul>
+						<div class="card" style="padding-top:28px">
+							<img class="card-img-top"
+								src="../images/demo/backgrounds/sky.jpg" alt="Card image"
+								style="width: 100%">
+							<p>excuse me!</p>
+							<div class="card-body">
+								<h4 class="card-title">Doctor OH</h4>
+								<p class="card-text"></p>
+								<div class="sdb_holder">
+									<address>
+										Full Name<br> Address Line 1<br> Address Line 2<br>
+										Town/City<br> Postcode/Zip<br> <br> Tel: xxxx
+										xxxx xxxxxx<br> Email: <a href="#">contact@domain.com</a>
+									</address>
+								</div>
+							</div>
+						</div>
+				</ul>
+					</div>
+				<div class="wrapper row1">
+					<li><a href="#">정보수정</a></li>
+					<li><a href="#">일정관리</a></li>
+					<li><a href="#">Q&A</a></li>
+					<li><a href="#">충전내역확인</a></li>
+					<li><a href="#">내가펀딩한목록</a></li>
+					<li><a href="#">찜목록</a></li>
+					<li><a href="#">뮤지션 전환</a></li> <br> <br>
+					<li><a href="#">공연등록</a></li>
+					<li><a href="#">공연관리</a></li>
+				</div>
+			</nav>
+		</div>  
+		<div class="three_quarter">
+       
+<div style="width:66%; height:100px; float:left;">
+    <h1>BANDNAME</h1> 
+</div>
+<div style="width:34%; height:100px; float:left; align:center;">
+<br>
+          <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+          <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+          <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
+          <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+</div>           	
     
     <div id="intro" class="nospace clear" align="left" style="display:inline;">  
        
-	    <div id="profile" class="one_half first" style="margin-bottom: 60px;" style="opacity:1;">
-	    	<img src="./img/radiohead.jpg" style="width:100%; height:300px">
+	    <div id="profile" class="two_third first" style="margin-bottom: 60px;" style="opacity:1;">
+	    	<img src="../images/radiohead.jpg" style="width:100%; height:100%">
 	    </div>
 	    
-		<div class="one_half" style="margin-bottom:60px;">
-			    4.5 <br>
-			    123명의 리스너가 좋아합니다.<br>		    
-			<button id="score" value="5" class="btn btn-primary">버튼</button>
-			<span>
-			<span><img src="./img/blank_ico_assess.png"> ★★★★☆	 </span>
-			</span>	 	 
-			 	   
+		<div class="one_third" style="margin-bottom:60px; align:center;">
+			<h3>4.5</h3>
+			123명의 리스너가 좋아합니다.<br>		    
+			<span style="cursor:pointer"><%@include file="icon.jsp"%></span>
+			<button id="score" class="btn btn-default" value="">점수주기</button>
 		</div>
 		
 	</div>
@@ -67,47 +111,140 @@
 	<h3>Member Info</h3> 
     <ul class="group services" style="padding-top:10px; padding-left:0px; list-style:none;">
     
-  	<li class="one_fifth first" style="margin-bottom: 60px;">
-    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="./img/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+  	<li class="one_quarter first" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
     <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
     <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
     <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
     <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary" onmouseover="javascript:blue()">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
     </li>
 	
-  	<li class="one_fifth" style="margin-bottom: 60px;">
-    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="./img/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
     <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
     <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
     <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
     <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary" onmouseover="javascript:blue()">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
     </li>
     
-  	<li class="one_fifth" style="margin-bottom: 60px;">
-    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="./img/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>       
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
     <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
     <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
     <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
     <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary" onmouseover="javascript:blue()">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
     </li>
     
-  	<li class="one_fifth" style="margin-bottom: 60px;">
-    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="./img/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>           
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
     <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
     <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
     <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
     <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
     </li>
-  	
-  	<li class="one_fifth" style="margin-bottom: 60px;">
-    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="./img/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>           
-	<a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
-    <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
-    <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
-    <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
-    </li>
-    
+   
     </ul>   
+
+    <ul class="group services" style="padding-top:10px; padding-left:0px; list-style:none;">
+    
+  	<li class="one_quarter first" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+    <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary" onmouseover="javascript:blue()">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
+    </li>
+	
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+    <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary" onmouseover="javascript:blue()">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
+    </li>
+    
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+    <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
+    </li>
+    
+  	<li class="one_quarter" style="margin-bottom: 60px;">
+    <a href="photoviewpage.html" target="_blank"><img class="fadding-photo" src="../images/demo/gallery/Vocal.jpg" alt="사진을 클릭하시면 확대할 수 있습니다."></a>              
+    <a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a>
+    <a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a>
+    <a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a>
+    <a class="faicon-youtube" href="#"><i class="fa fa-youtube"></i></a>
+    <div>포지션</div>
+    <div>이름</div>
+	<details>
+    <summary id="summary">상세정보</summary>
+    <p>여기에<br>
+  	상세정보가 옵니다.<br>
+    </p>
+	</details>  
+    </li>
+   
+    </ul>   
+
 	</div>    
    		    
 	<hr>
@@ -117,8 +254,12 @@
 	  <span>뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 
 	  뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다. 뮤지션에 대한 소개가 옵니다.</span> 
 </div>
+
+<hr>
+
 <div id="Schedule" style="margin-top:20px;">
-<table id="table" style="width:100%; height:400px;">
+<h3>SCHEDULE</h3>
+		<table id="table" style="width:100%; height:200px; text_align:center;" >
           <thead>
             <tr>
               <th>날짜</th>
@@ -131,7 +272,7 @@
               <td><a href="#">2018.01.01.</a></td>
               <td>00:00 AM ~ 24:00 PM</td>
               <td colspan="2">서울시 구로구 구로동 디지털로 34길 43
-              <button name="loc" class="btn">장소확인</button>
+              <button name="loc" class="btn btn-default">장소확인</button>
               </td>
             </tr>
             <tr>
@@ -144,11 +285,11 @@
               <td>Value 10</td>
               <td colspan="2">Value 3</td>
             </tr>
-            <tr>
-              <td>Value 13</td>
-              <td><a href="#">Value 14</a></td>
-              <td colspan="2">Value 3</td>
-            </tr>
+			<tr>
+				<td><a href="#">Value 5</a></td>
+				<td>Value 2</td>
+				<td>Value 2</td>
+			</tr>
           </tbody>
         </table>
 </div>
@@ -169,13 +310,13 @@
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             <div class="item active">
-                <img style="width:300px; height:300px;" src="./img/demo/gallery/Vocal.jpg" alt="First Slide">
+                <img style="width:300px; height:300px;" src="../images/demo/gallery/Vocal.jpg" alt="First Slide">
             </div>
             <div class="item">
-                <img style="width:300px; height:300px;" src="./img/demo/gallery/Vocal.jpg" alt="Second Slide">
+                <img style="width:300px; height:300px;" src="../images/demo/gallery/Vocal.jpg" alt="Second Slide">
             </div>
             <div class="item">
-                <img style="width:300px; height:300px;" src="./img/demo/gallery/Vocal.jpg" alt="Third Slide">
+                <img style="width:300px; height:300px;" src="../images/demo/gallery/Vocal.jpg" alt="Third Slide">
             </div>
         </div>
         <!-- Carousel controls -->
@@ -196,8 +337,8 @@
 
 <h3>VIDEO</h3>
 
- <div class="container" align="center" >
-	<div id="myCarousel_video" class="carousel slide" data-ride="carousel" style="width:500px; height:250px;">
+ <div class="container" align="center" style="width:550px; height:300px; padding:0 0 0 0;">
+	<div id="myCarousel_video" class="carousel slide" data-ride="carousel" style="width:500px; height:250px; padding: 0 0 0 0;">
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel_video" data-slide-to="0" class=""></li>
 			<li data-target="#myCarousel_video" data-slide-to="1" class=""></li>
@@ -219,10 +360,10 @@
 				<div class="embed-responsive embed-responsive-16by9">
 					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7t3xBqAWLaU?start=15" width="320" height="180" frameborder="0" ></iframe>
 				</div>
-				<div class="item">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7t3xBqAWLaU?start=15" width="320" height="180" frameborder="0"></iframe>
-					</div>
+			</div>
+			<div class="item">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7t3xBqAWLaU?start=15" width="320" height="180" frameborder="0"></iframe>
 				</div>
 			</div>
 			<a class="left carousel-control" href="#myCarousel_video" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -235,23 +376,23 @@
 
 <div id="music_div" style="margin-bottom:60px;">	  
 <h3>MUSIC</h3>
-<div id="Music" class="one_third first" align="center">
+<div id="Music" align="left">
 <audio controls="controls" >
-<source src="./mp3/Nirvana - Smells Like Teen Spirit.mp3" type="audio/mp3">
+<source src="../mp3/Nirvana - Smells Like Teen Spirit.mp3" type="audio/mp3" 	>
 </audio>
 <span>Nirvana - Smells Like Teen Spirit.mp3</span>
 </div>
 
-<div id="Music" class="one_third" align="center">    
+<div id="Music" align="left">    
 <audio controls="controls" >
-<source src="./mp3/Radiohead - Exit Music (For A Film) lyrics.mp3" type="audio/mp3">
+<source src="../mp3/Radiohead - Exit Music (For A Film) lyrics.mp3" type="audio/mp3">
 </audio>
 <span>Radiohead - Exit Music (For A Film) lyrics.mp3</span>
 </div>
     
-<div id="Music" class="one_third" align="center">    
+<div id="Music" align="left">    
 <audio controls="controls" >
-<source src="./mp3/Radiohead - Karma Police.mp3" type="audio/mp3">
+<source src="../mp3/Radiohead - Karma Police.mp3" type="audio/mp3">
 </audio>
 <span>Radiohead - Karma Police.mp3</span>
 </div>
@@ -270,7 +411,7 @@
         <ul>
           <li>            
               <div>
-                <figure class="avatar"><img src="./img/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
+                <figure class="avatar"><img src="../images/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
                 <address>
                 By <a href="#">A Name</a>
                 </address>
@@ -282,7 +423,7 @@
           </li>
           <li>            
               <div>
-                <figure class="avatar"><img src="./img/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
+                <figure class="avatar"><img src="../images/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
                 <address>
                 By <a href="#">A Name</a>
                 </address>
@@ -294,7 +435,7 @@
           </li>
           <li>            
               <div>
-                <figure class="avatar"><img src="./img/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
+                <figure class="avatar"><img src="../images/demo/avatar.png" style="width:32px; height:32px;" alt=""></figure>
                 <address>
                 By <a href="#">A Name</a>
                 </address>
@@ -332,10 +473,14 @@
           </div>
         </form>
 </div>
+
+    
+
+
+
     </div>
-	    
+	</div>    
     </div><!-- container -->
     </div><!-- wrapper row3 -->
 <!------------------------------------------- footer------------------------------------- -->
 <%@include file="/frame/mpfooter.jsp"%>
-	
