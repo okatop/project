@@ -37,7 +37,7 @@ CREATE TABLE funding_status(
    amount         NUMBER         NOT NULL,   --현재달성금액
    status         VARCHAR2(1)    DEFAULT 'W',   --상태(W승인대기, S진행, E종료)
    
-   CONSTRAINT funding_reward_no_fk FOREIGN KEY(no) REFERENCES funding(no)
+   CONSTRAINT funding_status_no_fk FOREIGN KEY(no) REFERENCES funding(no)
 );
 
 DROP TABLE backer CASCADE CONSTRAINTS;
@@ -46,5 +46,5 @@ CREATE TABLE backer(
    member_id       VARCHAR2(16)   NOT NULL,   --회원아이디 FK
    amount          NUMBER         NOT NULL,   --후원금액
    
-   CONSTRAINT funding_reward_no_fk FOREIGN KEY(no) REFERENCES funding(no)
+   CONSTRAINT backer_no_fk FOREIGN KEY(no) REFERENCES funding(no)
 );
