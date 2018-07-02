@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.indiya.funding.model.FundingDto;
+import com.indiya.funding.model.FundingRewardDto;
 
 public interface FundingDao {
 	List<FundingDto> getFundingList(Map<String, String> map);		//리스트
+	List<FundingRewardDto> getFundingRewardList(int no);			//리워드리스트
 	FundingDto viewFundingDetail(int no);							//상세
 	
 	void changeStatusFunding(Map<String, String> map);				//승인, 만료, map(status, no)

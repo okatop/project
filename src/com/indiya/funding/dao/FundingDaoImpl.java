@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.indiya.funding.model.FundingDto;
+import com.indiya.funding.model.FundingRewardDto;
 import com.indiya.util.db.DBClose;
 import com.indiya.util.db.DBConnection;
 
@@ -56,6 +57,39 @@ public class FundingDaoImpl implements FundingDao {
 				fundingDto.setContents(rs.getString("contents"));
 				fundingDto.setWrite_date(rs.getString("write_date"));
 				list.add(fundingDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+		return list;
+	}
+	
+	@Override
+	public List<FundingRewardDto> getFundingRewardList(int no) {
+		List<FundingRewardDto> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select f.no, r.amount, r.pic, r.title, r.contents \n");
+			sql.append("from funding f, funding_reward r \n");
+			sql.append("where f.no = r.no \n");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				FundingRewardDto rewardDto = new FundingRewardDto();
+				rewardDto.setNo(rs.getInt("no"));
+				rewardDto.setAmount(rs.getInt("amount"));
+				rewardDto.setPic(rs.getString("pic"));
+				rewardDto.setTitle(rs.getString("title"));
+				rewardDto.setContents(rs.getString("contents"));
+				
+				list.add(rewardDto);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -192,7 +226,9 @@ public class FundingDaoImpl implements FundingDao {
 			pstmt.setString(2, map.get("no"));
 			pstmt.executeQuery();
 			
+			pstmt.close();
 			sql.setLength(0);
+			
 			sql.append("insert into backer (no, member_id, amount) \n");
 			sql.append("values (?, ?, ?) \n");
 			pstmt = conn.prepareStatement(sql.toString());

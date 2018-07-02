@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.indiya.funding.model.FundingDto;
+import com.indiya.funding.model.FundingRewardDto;
 
 public class FundingServiceImpl implements FundingService {
 
@@ -12,7 +13,7 @@ public class FundingServiceImpl implements FundingService {
 	static {
 		fundingService = new FundingServiceImpl();
 	}
-	
+
 	private FundingServiceImpl() {}
 
 	public static FundingService getFundingService() {
@@ -21,6 +22,11 @@ public class FundingServiceImpl implements FundingService {
 
 	@Override
 	public List<FundingDto> getFundingList(Map<String, String> map) {
+		return null;
+	}
+
+	@Override
+	public List<FundingRewardDto> getFundingRewardList(int no) {
 		return null;
 	}
 
