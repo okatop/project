@@ -7,6 +7,7 @@ import com.indiya.funding.model.FundingDto;
 import com.indiya.funding.model.FundingRewardDto;
 
 public interface FundingService {
+	//TODO map에 검색 조건(이름 등), 정렬(진행, 대기, 종료), reward리스트
 	List<FundingDto> getFundingList(Map<String, String> map);		//리스트
 	List<FundingRewardDto> getFundingRewardList(int no);			//리워드리스트
 	
@@ -14,7 +15,7 @@ public interface FundingService {
 	
 	void changeStatusFunding(int no, String status);				//승인, 만료, map(status, no)
 	
-	void writeFunding(FundingDto fundingDto);						//신청
+	int writeFunding(FundingDto fundingDto);						//신청
 	void modifyFunding(FundingDto fundingDto);						//수정
 	void deleteFunding(int no);										//삭제
 	

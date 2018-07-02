@@ -3,6 +3,7 @@ package com.indiya.funding.service;
 import java.util.List;
 import java.util.Map;
 
+import com.indiya.funding.dao.FundingDaoImpl;
 import com.indiya.funding.model.FundingDto;
 import com.indiya.funding.model.FundingRewardDto;
 
@@ -41,8 +42,10 @@ public class FundingServiceImpl implements FundingService {
 	}
 
 	@Override
-	public void writeFunding(FundingDto fundingDto) {
-
+	public int writeFunding(FundingDto fundingDto) {
+		int seq = FundingDaoImpl.getFundingDao().getNextSeq();
+		fundingDto.setNo(seq);
+		return FundingDaoImpl.getFundingDao().writeFunding(fundingDto) == 0 ? 0 : seq;
 	}
 
 	@Override

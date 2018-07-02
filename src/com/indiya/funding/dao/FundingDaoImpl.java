@@ -1,12 +1,7 @@
 package com.indiya.funding.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.sql.*;
+import java.util.*;
 
 import com.indiya.funding.model.FundingDto;
 import com.indiya.funding.model.FundingRewardDto;
@@ -27,6 +22,32 @@ public class FundingDaoImpl implements FundingDao {
 		return fundingDao;
 	}
 
+	
+	@Override
+	public int getNextSeq() {
+		int seq = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select funding_seq.nextval seq \n");
+			sql.append("from dual");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			rs = pstmt.executeQuery();
+			rs.next();
+			seq = rs.getInt("seq");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return seq;
+	}
+	
 	@Override
 	public List<FundingDto> getFundingList(Map<String, String> map) {
 		List<FundingDto> list = new ArrayList<>();
@@ -40,6 +61,7 @@ public class FundingDaoImpl implements FundingDao {
 			sql.append("s.amount, s.status \n");
 			sql.append("from funding f, funding_status s \n");
 			sql.append("where f.no = s.no \n");
+			//sql.append("order by close desc");
 			//TODO map에 검색 조건(이름 등), 정렬(진행, 대기, 종료), reward리스트
 			
 			pstmt = conn.prepareStatement(sql.toString());
@@ -77,9 +99,10 @@ public class FundingDaoImpl implements FundingDao {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select f.no, r.amount, r.pic, r.title, r.contents \n");
 			sql.append("from funding f, funding_reward r \n");
-			sql.append("where f.no = r.no \n");
-			
+			sql.append("where f.no = ?");
+
 			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				FundingRewardDto rewardDto = new FundingRewardDto();
@@ -114,7 +137,6 @@ public class FundingDaoImpl implements FundingDao {
 			sql.append("where f.no = s.no \n");
 			sql.append("and f.no = ? \n");
 			
-			//TODO	funding_reward 얻기
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
@@ -161,10 +183,10 @@ public class FundingDaoImpl implements FundingDao {
 	}
 
 	@Override
-	public void writeFunding(FundingDto fundingDto) {
+	public int writeFunding(FundingDto fundingDto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		int cnt = 0;
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
@@ -191,12 +213,13 @@ public class FundingDaoImpl implements FundingDao {
 			
 			pstmt.setInt(++idx, fundingDto.getNo());
 			
-			pstmt.executeUpdate();
+			cnt = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBClose.close(conn, pstmt);
 		}
+		return cnt;
 	}
 
 	@Override
