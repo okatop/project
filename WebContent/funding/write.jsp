@@ -21,6 +21,17 @@ function writeArticle(){
 		document.writeForm.submit();
 	}
 }
+
+function addRewardForm(){
+	var rewardForm = document.getElementById("rewardHiddenForm");
+	document.getElementById("rewardList").appendChild(rewardForm.cloneNode(true)).setAttribute("class", "");
+	
+}
+
+function removeRewardForm(object){
+	var removeNode = object.parentNode.parentNode; 
+	document.getElementById("rewardList").removeChild(removeNode);
+}
 </script>
 <body id="top">
 
@@ -129,9 +140,9 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 
  <!-- 리워드 영역 시작 -->
 	<div class="clear"></div>
-      <div id="comments">
+      <div id="rewardList">
 		<div class="fl_right">
-			<button class="btn">+</button>
+			<input class="btn" type="button" onclick="javascript:addRewardForm();" value="+">
 		</div>
 		<h2>Reward List</h2>
         <ul>
@@ -175,10 +186,13 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 
 
 <!-- 리워드 추가용 숨김 div 시작 -->
-      <div id="comments" class="hidden">
+      <div id="rewardHiddenForm" class="hidden">
+        <div class="fl_right">
+       	  <input class="btn" type="button" onclick="javascript:removeRewardForm(this);" value="&nbsp;-&nbsp;">
+		</div>
 		<ul>
           <li class="services clear">
-            <article class="">
+            <article id="" class="">
 				<div class="one_quarter first">
 					<div class="thumbnail">
 						<div class="caption">이미지 등록</div>
