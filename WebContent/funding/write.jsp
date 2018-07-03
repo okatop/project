@@ -129,7 +129,7 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 			
 			<h2>Content</h2>
 <!-- 			<textarea class="form-control" name="contents" id="contents" rows="50" cols="100" required></textarea> -->
-			<textarea class="form-control" name="contents" id="contents" rows="50" cols="100" ></textarea>
+			<textarea class="form-control" name="contents" id="summernote" rows="50" cols="100" ></textarea>
 			
 		  <article class="services">
 
@@ -258,4 +258,14 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 <!-- ############################################### -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
+<script src="/project/layout/scripts/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/lang/summernote-ko-KR.js"></script>
+    <script>
+      $('#summernote').summernote({
+        height: 500,
+        lang : 'ko-KR'
+      });
+    </script>
 <%@include file="/frame/mpfooter.jsp"%>
