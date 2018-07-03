@@ -222,6 +222,35 @@ public class FundingDaoImpl implements FundingDao {
 		return cnt;
 	}
 
+	
+	@Override
+	public int writeFundingReward(FundingRewardDto rewardDto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int cnt = 0;
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("insert	into funding_reward (no, amount, pic, title, contents) \n");
+			sql.append("values (?, ?, ?, ?, ?) \n");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			int idx = 0;
+			pstmt.setInt(++idx, rewardDto.getNo());
+			pstmt.setInt(++idx, rewardDto.getAmount());
+			pstmt.setString(++idx, rewardDto.getPic());
+			pstmt.setString(++idx, rewardDto.getTitle());
+			pstmt.setString(++idx, rewardDto.getContents());
+			cnt = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+		return cnt;
+	}
+
+
 	@Override
 	public void modifyFunding(FundingDto fundingDto) {
 		

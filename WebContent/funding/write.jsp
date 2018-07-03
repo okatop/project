@@ -9,6 +9,8 @@ document.location.href = "${root}/funding/index.jsp";
 </script>
 </c:if>
 <script>
+var cnt = 1;
+
 function writeArticle(){
 	if(document.writeForm.title.value == ""){
 		alert("제목을 입력하세요.");
@@ -22,13 +24,19 @@ function writeArticle(){
 	}
 }
 
+
 function addRewardForm(){
 	var rewardForm = document.getElementById("rewardHiddenForm");
 	var cloneForm = rewardForm.cloneNode(true);
-	cloneForm.setAttribute("class", "");
-	cloneForm.setAttribute("id", "");
+	cloneForm.setAttribute("class", "reward" + cnt);
+	cloneForm.setAttribute("id", "reward" + cnt);
 	document.getElementById("rewardList").appendChild(cloneForm);
 	
+	$("#reward"+cnt+" [name='reward_pic']").attr("name", $("#reward"+cnt+" [name='reward_pic']").attr("name")+cnt);
+	$("#reward"+cnt+" [name='reward_title']").attr("name", $("#reward"+cnt+" [name='reward_title']").attr("name")+cnt);
+	$("#reward"+cnt+" [name='reward_amount']").attr("name", $("#reward"+cnt+" [name='reward_amount']").attr("name")+cnt);
+	$("#reward"+cnt+" [name='reward_contents']").attr("name", $("#reward"+cnt+" [name='reward_contents']").attr("name")+cnt);
+	cnt++;
 }
 
 function removeRewardForm(object){
@@ -156,25 +164,25 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 						<div class="caption">이미지 등록</div>
 						<img src="" alt="">
 <!-- 						<input type="file" name="pic" id="pic" value="" required> -->
-						<input type="file" name="pic" id="pic" value="" >
+						<input type="file" name="reward_pic0" id="reward_pic0" value="" >
 					</div>
 				</div>
 				<div class="three_quarter">
 					<div class="input-group">
 						<span class="input-group-addon" id="">Title :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <!-- 						<input type="text" class="input-group form-control" name="rtitle" id="rtitle" value="" required> -->
-						<input type="text" class="input-group form-control" name="rtitle" id="rtitle" value="" >
+						<input type="text" class="input-group form-control" name="reward_title0" id="reward_title0" value="" >
 					</div><br>
 					<div class="input-group">
 						<span class="input-group-addon" id="">Price :&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <!-- 						<input type="number" class="input-group form-control" name="amount" id="amount" value="" min="1" required> -->
-						<input type="number" class="input-group form-control" name="amount" id="amount" value="" min="1" >
+						<input type="number" class="input-group form-control" name="reward_amount0" id="reward_amount0" value="" min="1" >
 					</div><br>
 				
 					<div class="input-group">
 						<span class="input-group-addon" id="">Content : </span>
 <!-- 						<textarea class="form-control" name="rcontents" id="rcontents" value="" rows="5" cols="" required></textarea> -->
-						<textarea class="form-control" name="rcontents" id="rcontents" value="" rows="5" cols="" ></textarea>
+						<textarea class="form-control" name="reward_contents0" id="reward_contents0" value="" rows="5" cols="" ></textarea>
 						<!-- <input type="text" class="input-group" name="" id="" value="" required> -->
 					</div><br>
 				</div>
@@ -187,6 +195,12 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
       </div>
 <!-- 리워드 영역 끝 -->	  
 
+
+		<div class="fl_right">
+			<a href="javascript:writeArticle();" class="btn">펀딩 신청하기</a>
+		</div>
+	</form>
+	<!-- 펀딩 작성 폼 끝 -->
 
 <!-- 리워드 추가용 숨김 div 시작 -->
       <div id="rewardHiddenForm" class="hidden">
@@ -201,25 +215,25 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 						<div class="caption">이미지 등록</div>
 						<img src="../images/demo/imgl.gif" alt="">
 <!-- 						<input type="file" name="addrewardfile" id="" value="" required> -->
-						<input type="file" name="addrewardfile" id="" value="">
+						<input type="file" name="reward_pic" id="" value="">
 					</div>
 				</div>
 				<div class="three_quarter">
 					<div class="input-group">
 						<span class="input-group-addon" id="">Title :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <!-- 						<input type="text" class="input-group form-control" name="" id="" value="" required> -->
-						<input type="text" class="input-group form-control" name="" id="" value="">
+						<input type="text" class="input-group form-control" name="reward_title" id="" value="">
 					</div><br>
 					<div class="input-group">
 						<span class="input-group-addon" id="">Price :&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <!-- 						<input type="number" class="input-group form-control" name="" id="" value="" min="1" required> -->
-						<input type="number" class="input-group form-control" name="" id="" value="" min="1">
+						<input type="number" class="input-group form-control" name="reward_amount" id="" value="" min="1">
 					</div><br>
 				
 					<div class="input-group">
 						<span class="input-group-addon" id="">Content : </span>
 <!-- 						<textarea class="form-control" name="" id="" value="" rows="5" cols="" required></textarea> -->
-						<textarea class="form-control" name="" id="" value="" rows="5" cols=""></textarea>
+						<textarea class="form-control" name="reward_contents" id="" value="" rows="5" cols=""></textarea>
 						<!-- <input type="text" class="input-group" name="" id="" value="" required> -->
 					</div><br>
 				</div>
@@ -231,12 +245,6 @@ Funding Detailes Body	Funding Detailes Body	Funding Detailes Body	Funding Detail
 		</ul>
       </div>
 <!-- 리워드 추가용 숨김 div 끝 -->
-
-		<div class="fl_right">
-			<a href="javascript:writeArticle();" class="btn">펀딩 신청하기</a>
-		</div>
-	</form>
-	<!-- 펀딩 작성 폼 끝 -->
       <!-- ############################################### -->
     </div>
     <!-- ############################################### -->

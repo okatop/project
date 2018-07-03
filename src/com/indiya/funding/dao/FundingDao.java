@@ -15,6 +15,7 @@ public interface FundingDao {
 	void changeStatusFunding(Map<String, String> map);				//승인, 만료, map(status, no)
 	
 	int writeFunding(FundingDto fundingDto);						//신청
+	int writeFundingReward(FundingRewardDto fundingRewardDto);		//리워드
 	void modifyFunding(FundingDto fundingDto);						//수정
 	void deleteFunding(int no);										//삭제
 	
