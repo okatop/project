@@ -24,12 +24,15 @@ function writeArticle(){
 
 function addRewardForm(){
 	var rewardForm = document.getElementById("rewardHiddenForm");
-	document.getElementById("rewardList").appendChild(rewardForm.cloneNode(true)).setAttribute("class", "");
+	var cloneForm = rewardForm.cloneNode(true);
+	cloneForm.setAttribute("class", "");
+	cloneForm.setAttribute("id", "");
+	document.getElementById("rewardList").appendChild(cloneForm);
 	
 }
 
 function removeRewardForm(object){
-	var removeNode = object.parentNode.parentNode; 
+	var removeNode = object.parentNode.parentNode;
 	document.getElementById("rewardList").removeChild(removeNode);
 }
 </script>
