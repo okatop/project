@@ -1,11 +1,11 @@
 package com.indiya.funding.service;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.indiya.funding.dao.FundingDaoImpl;
 import com.indiya.funding.model.FundingDto;
 import com.indiya.funding.model.FundingRewardDto;
+import com.indiya.util.IndiyaConstance;
 
 public class FundingServiceImpl implements FundingService {
 
@@ -22,18 +22,28 @@ public class FundingServiceImpl implements FundingService {
 	}
 
 	@Override
-	public List<FundingDto> getFundingList(Map<String, String> map) {
-		return null;
+	public List<FundingDto> getFundingList(int pg, String key, String word) {
+		int end = pg * IndiyaConstance.ALBUM_LIST_SIZE;
+		int start = end - IndiyaConstance.ALBUM_LIST_SIZE;
+		
+		Map<String, String> map = new HashMap<>();
+//		map.put("bcode", bcode + "");
+		map.put("start", start + "");
+		map.put("end", end + "");
+		map.put("key", key);
+		map.put("word", word);
+		
+		return FundingDaoImpl.getFundingDao().getFundingList(map);
 	}
 
 	@Override
 	public List<FundingRewardDto> getFundingRewardList(int no) {
-		return null;
+		return FundingDaoImpl.getFundingDao().getFundingRewardList(no);
 	}
 
 	@Override
 	public FundingDto viewFundingDetail(int no) {
-		return null;
+		return FundingDaoImpl.getFundingDao().viewFundingDetail(no);
 	}
 
 	@Override
@@ -51,6 +61,7 @@ public class FundingServiceImpl implements FundingService {
 	
 	@Override
 	public int writeFundingReward(List<FundingRewardDto> list) {
+//		TODO insert all
 		int size = list.size();
 		for(int i=0; i<size; i++) {
 			FundingDaoImpl.getFundingDao().writeFundingReward(list.get(i));

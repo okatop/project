@@ -6,7 +6,7 @@ public class ParameterCheck {
 		return str == null ? "" : str;
 	}
 
-	public static int nanToZero(String numStr) {
+	public static int naNToZero(String numStr) {
 		int num = 0;
 		if (isNumber(numStr)) {
 			num = Integer.parseInt(numStr);
@@ -14,7 +14,7 @@ public class ParameterCheck {
 		return num;
 	}
 
-	public static int nanToOne(String numStr) {
+	public static int naNToOne(String numStr) {
 		int num = 1;
 		if (isNumber(numStr)) {
 			num = Integer.parseInt(numStr);

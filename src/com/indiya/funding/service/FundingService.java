@@ -1,14 +1,13 @@
 package com.indiya.funding.service;
 
 import java.util.List;
-import java.util.Map;
 
 import com.indiya.funding.model.FundingDto;
 import com.indiya.funding.model.FundingRewardDto;
 
 public interface FundingService {
 	//TODO map에 검색 조건(이름 등), 정렬(진행, 대기, 종료), reward리스트
-	List<FundingDto> getFundingList(Map<String, String> map);		//리스트
+	List<FundingDto> getFundingList(int pg, String key, String word);		//리스트
 	List<FundingRewardDto> getFundingRewardList(int no);			//리워드리스트
 	
 	FundingDto viewFundingDetail(int no);							//상세

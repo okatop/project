@@ -62,7 +62,7 @@ public class FundingDaoImpl implements FundingDao {
 			sql.append("from funding f, funding_status s \n");
 			sql.append("where f.no = s.no \n");
 			//sql.append("order by close desc");
-			//TODO map에 검색 조건(이름 등), 정렬(진행, 대기, 종료), reward리스트
+			//TODO map에 검색 조건(이름 등), 정렬(진행, 대기, 종료)
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			rs = pstmt.executeQuery();
@@ -78,6 +78,8 @@ public class FundingDaoImpl implements FundingDao {
 				fundingDto.setTitle(rs.getString("title"));
 				fundingDto.setContents(rs.getString("contents"));
 				fundingDto.setWrite_date(rs.getString("write_date"));
+				fundingDto.setAmount(rs.getInt("amount"));
+				fundingDto.setStatus(rs.getString("status"));
 				list.add(fundingDto);
 			}
 		} catch (SQLException e) {
@@ -97,9 +99,11 @@ public class FundingDaoImpl implements FundingDao {
 		try {
 			conn = DBConnection.makeConnection();
 			StringBuffer sql = new StringBuffer();
-			sql.append("select f.no, r.amount, r.pic, r.title, r.contents \n");
+			sql.append("select r.no, r.amount, r.pic, r.title, r.contents \n");
 			sql.append("from funding f, funding_reward r \n");
-			sql.append("where f.no = ?");
+			sql.append("where r.no = f.no \n");
+			sql.append("and f.no = ? \n");
+			sql.append("order by amount asc");
 
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setInt(1, no);
@@ -152,6 +156,8 @@ public class FundingDaoImpl implements FundingDao {
 			fundingDto.setTitle(rs.getString("title"));
 			fundingDto.setContents(rs.getString("contents"));
 			fundingDto.setWrite_date(rs.getString("write_date"));
+			fundingDto.setAmount(rs.getInt("amount"));
+			fundingDto.setStatus(rs.getString("status"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -222,7 +228,7 @@ public class FundingDaoImpl implements FundingDao {
 		return cnt;
 	}
 
-	
+//	TODO insert all
 	@Override
 	public int writeFundingReward(FundingRewardDto rewardDto) {
 		Connection conn = null;

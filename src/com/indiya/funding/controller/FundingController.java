@@ -15,7 +15,7 @@ public class FundingController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String act = request.getParameter("act");
-		int pg = ParameterCheck.nanToZero(request.getParameter("pg"));
+		int pg = ParameterCheck.naNToZero(request.getParameter("pg"));
 		String key = ParameterCheck.nullToBlank(request.getParameter("key"));
 		String word = ParameterCheck.nullToBlank(request.getParameter("word"));
 		//String queryString = "pg=" + pg + "&key=" + key + "&word=" + Encoder.urlUtf(word);
@@ -32,10 +32,14 @@ public class FundingController extends HttpServlet {
 			path = FundingActionFactory.getFundingWriteAction().execute(request, response);
 			path += queryString;
 			PageMove.redirect(request, response, path);
-		}else if("".equals(act)) {
-			
-		}else if("".equals(act)) {
-			
+		}else if("listfunding".equals(act)) {
+			path = FundingActionFactory.getFundingListAction().execute(request, response);
+			path += queryString;
+			PageMove.forward(request, response, path);
+		}else if("viewfunding".equals(act)) {
+			path = FundingActionFactory.getFundingViewAction().execute(request, response);
+			path += queryString;
+			PageMove.forward(request, response, path);
 		}else if("".equals(act)) {
 			
 		}else if("".equals(act)) {
