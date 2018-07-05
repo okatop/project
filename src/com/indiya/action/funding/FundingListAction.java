@@ -41,7 +41,7 @@ public class FundingListAction implements Action {
 //		System.out.println("print in reboardlistaction list size : "+list.size());
 		request.setAttribute("list", list);
 //		request.setAttribute("navigator", navigator);
-		return "/reboard/list.jsp?";
+		return "/funding/list.jsp?";
 	}
 
 }

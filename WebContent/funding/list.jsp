@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="/frame/mpheader.jsp"%>
 <%@ include file="/commons/board_common.jsp" %>
 <script>
@@ -99,346 +100,37 @@ Funding Menu Body	Funding Menu Body	Funding Menu Body	Funding Menu Body
 		  <ul class="nospace clear">
 <!-- 펀딩 리스트 시작 -->
             
-			
+	<c:forEach var="funding" items="${list}" varStatus="i" >
+		<c:choose>
+			<c:when test="${i.index % 4 == 0}">
 			<li class="one_quarter first">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
+			</c:when>
+			<c:when test="${i.index % 4 != 0}">
 			<li class="one_quarter">
+			</c:when>
+		</c:choose>
 			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
+				<a href="${root}/funding?act=viewfunding&seq=${funding.no}&pg=1"><img src="../images/demo/gallery/01.png" alt="">
 				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
+					<h6>${funding.title}</h6>
+					<p>${funding.musician_id}</p>
 					<!-- <p>카테고리</p> -->
 					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: <fmt:formatNumber value="${funding.amount / funding.goal}" type="percent"/>;">
+						<fmt:formatNumber value="${funding.amount / funding.goal}" type="percent"/>
 						</div>
 					</div>
 					<div class="inline">
 						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
+						<div class="fl_right">${funding.amount}</div>
 					</div>
 				
 				</div>
 				</a>
 			</div>
 			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			
-			<li class="one_quarter first">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			
-			<li class="one_quarter first">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			
-			<li class="one_quarter first">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
-			<li class="one_quarter">
-			<div class="thumbnail">
-				<a href="#"><img src="../images/demo/gallery/01.png" alt="">
-				<div class="caption">
-					<h6>펀딩명</h6>
-					<p>작성자</p>
-					<!-- <p>카테고리</p> -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-						50%
-						</div>
-					</div>
-					<div class="inline">
-						<div class="">7일 남음</div>
-						<div class="fl_right">$500</div>
-					</div>
-				
-				</div>
-				</a>
-			</div>
-			</li>
+
+	</c:forEach>
 <!-- 펀딩 리스트 끝 -->
           </ul>
           <!-- <figcaption>Gallery Description Goes Here</figcaption> -->
